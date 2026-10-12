@@ -166,12 +166,12 @@ Lista buscaLocalNova(Lista solucaoInicial) {
                     custoAtual = custo;
                     estado = true;
                     solucaoInicial = listaAtual;
-                    goto sairDoBreakDescobri;
+                    goto sairDoBreak;
                 }
             }
         }
 
-        sairDoBreakDescobri:
+        sairDoBreak:
         ;
     }
 
