@@ -1,0 +1,236 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{setspace}
+
+\geometry{
+    left=3cm,
+    right=2cm,
+    top=3cm,
+    bottom=2cm
+}
+
+\onehalfspacing
+
+\title{Exemplo - Análise de Soluções e Frequências no Problema das P-Medianas}
+\author{Carlos Vinicius Fialho Rabelo}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Item 1 -- Cálculo dos Custos das Soluções}
+
+Para avaliar as soluções, considera-se a menor distância
+entre cada cliente e as instalações selecionadas.
+O custo total de uma solução corresponde à soma dessas
+menores distâncias.
+
+As soluções analisadas são
+$\{0,7,12\}$, $\{1,7,12\}$ e $\{1,4,9\}$.
+
+\subsection{Solução $\{0,7,12\}$}
+
+\begin{itemize}
+    \item Cliente 0: $|0-0|=0$, $|0-7|=7$,
+    $|0-12|=12$. Menor distância: 0.
+    \item Cliente 1: $1$, $6$, $11$.
+    Menor distância: 1.
+    \item Cliente 4: $4$, $3$, $8$.
+    Menor distância: 3.
+    \item Cliente 7: $7$, $0$, $5$.
+    Menor distância: 0.
+    \item Cliente 9: $9$, $2$, $3$.
+    Menor distância: 2.
+    \item Cliente 12: $12$, $5$, $0$.
+    Menor distância: 0.
+\end{itemize}
+
+O custo total é:
+
+\[
+C(\{0,7,12\}) = 0+1+3+0+2+0 = 6
+\]
+
+\subsection{Solução $\{1,7,12\}$}
+
+\begin{itemize}
+    \item Cliente 0: $1$, $7$, $12$.
+    Menor distância: 1.
+    \item Cliente 1: $0$, $6$, $11$.
+    Menor distância: 0.
+    \item Cliente 4: $3$, $3$, $8$.
+    Menor distância: 3.
+    \item Cliente 7: $6$, $0$, $5$.
+    Menor distância: 0.
+    \item Cliente 9: $8$, $2$, $3$.
+    Menor distância: 2.
+    \item Cliente 12: $11$, $5$, $0$.
+    Menor distância: 0.
+\end{itemize}
+
+O custo total é:
+
+\[
+C(\{1,7,12\}) = 1+0+3+0+2+0 = 6
+\]
+
+\subsection{Solução $\{1,4,9\}$}
+
+\begin{itemize}
+    \item Cliente 0: $1$, $4$, $9$.
+    Menor distância: 1.
+    \item Cliente 1: $0$, $3$, $8$.
+    Menor distância: 0.
+    \item Cliente 4: $3$, $0$, $5$.
+    Menor distância: 0.
+    \item Cliente 7: $6$, $3$, $2$.
+    Menor distância: 2.
+    \item Cliente 9: $8$, $5$, $0$.
+    Menor distância: 0.
+    \item Cliente 12: $11$, $8$, $3$.
+    Menor distância: 3.
+\end{itemize}
+
+O custo total é:
+
+\[
+C(\{1,4,9\}) = 1+0+0+2+0+3 = 6
+\]
+
+\subsection{Resumo dos resultados}
+
+\begin{table}[H]
+\centering
+\caption{Custos das soluções analisadas}
+\begin{tabular}{cc}
+\toprule
+\textbf{Solução} & \textbf{Custo total} \\
+\midrule
+$\{0,7,12\}$ & 6 \\
+$\{1,7,12\}$ & 6 \\
+$\{1,4,9\}$ & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A análise mostra que as três soluções possuem o mesmo
+custo total, igual a 6. Portanto, considerando apenas
+a função de custo, não é possível afirmar que uma delas
+seja melhor que as demais. As soluções estão empatadas,
+não havendo vantagem em escolher uma como solução-base.
+
+\section{Item 2 -- Cálculo das Frequências}
+
+O cálculo das frequências consiste em contar quantas
+vezes cada instalação aparece nas soluções analisadas.
+Como cada solução contém três instalações e existem
+três soluções, a quantidade total de ocorrências é:
+
+\[
+P \times N = 3 \times 3 = 9
+\]
+
+em que $P$ representa a quantidade de instalações e $N$ representa a quantidade de soluções.
+
+\subsection{Frequência das instalações}
+
+\begin{table}[H]
+\centering
+\caption{Frequência de ocorrência das instalações}
+\begin{tabular}{cc}
+\toprule
+\textbf{Instalação} & \textbf{Quantidade nas soluções} \\
+\midrule
+$\{0\}$  & 1 \\
+$\{1\}$  & 2 \\
+$\{4\}$  & 1 \\
+$\{7\}$  & 2 \\
+$\{9\}$  & 1 \\
+$\{12\}$ & 2 \\
+\midrule
+\textbf{Total} & \textbf{9} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A soma das frequências é igual a 9, confirmando que
+todas as ocorrências de instalações nas três soluções
+foram contabilizadas.
+
+\subsection{Frequência dos pares}
+
+Além das instalações individuais, podem ser analisados
+os pares de instalações presentes em cada solução.
+Como cada solução contém três instalações, ela gera
+três pares distintos.
+
+\begin{table}[H]
+\centering
+\caption{Pares presentes em cada solução}
+\begin{tabular}{cc}
+\toprule
+\textbf{Solução} & \textbf{Pares} \\
+\midrule
+$\{0,7,12\}$ &
+$\{0,7\}$, $\{0,12\}$, $\{7,12\}$ \\
+$\{1,7,12\}$ &
+$\{1,7\}$, $\{1,12\}$, $\{7,12\}$ \\
+$\{1,4,9\}$ &
+$\{1,4\}$, $\{1,9\}$, $\{4,9\}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O par $\{7,12\}$ aparece duas vezes, enquanto os demais
+pares aparecem uma única vez. Dessa forma, o par
+$\{7,12\}$ é o mais frequente entre as soluções
+analisadas e pode ser utilizado como ponto de partida
+para a construção de uma nova solução.
+
+\section{Item 3 -- Utilização das Frequências na Construção
+de Novas Soluções}
+
+As frequências obtidas indicam que as instalações 1,
+7 e 12 aparecem duas vezes nas soluções analisadas.
+Além disso, o par $\{7,12\}$ também aparece duas vezes,
+sendo o par mais frequente.
+
+Essas informações podem ser utilizadas para orientar
+a construção de novas soluções. Uma possibilidade é
+usar as frequências como pesos em um sorteio,
+atribuindo maior probabilidade de escolha às instalações
+e aos pares que aparecem com maior frequência.
+
+Essa estratégia mantém o componente aleatório da
+construção, mas utiliza as informações extraídas das
+soluções anteriores para orientar as escolhas.
+
+Nesse contexto, o pool de soluções de elite funciona
+como uma memória do algoritmo, armazenando soluções
+consideradas boas. As frequências representam informações
+extraídas dessa memória.
+
+Por sua vez, o \textit{path-relinking} pode combinar
+características de diferentes soluções de elite,
+explorando caminhos entre elas em busca de soluções
+de melhor qualidade.
+
+Uma analogia possível é a consulta a um banco de dados:
+as soluções armazenadas são observadas para identificar
+padrões que podem ser utilizados na
+construção de novas soluções. Entretanto, diferente de 
+uma simples verificação de integridade de dados,
+o objetivo do algoritmo é aproveitar essas informações
+para explorar o espaço de soluções e buscar custos
+menores.
+
+\end{document}
